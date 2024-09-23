@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./routes/Home";
 import ProductPage from "./routes/Product";
 import RootLayout from "./routes/RootLayout.js";
+import ErrorPage from "./routes/ErrorPage";
 
 const router = createBrowserRouter([
   // define routes through javascript objects in an array
@@ -15,7 +16,8 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    children: [ // make the other routes children routes in an array(list of routes) great when creating navigation
+    errorElement: <ErrorPage />, // for this route render error page as fallback page if an error occurs(like visiting a page that doesnt exist)
+    children: [ // make the other routes children routes in an array(list of routes) great when creating nav bars
       { path: "/", element: <HomePage /> },
       { path: "/products", element: <ProductPage /> },
     ],
