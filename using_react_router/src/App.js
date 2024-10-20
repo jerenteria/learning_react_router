@@ -3,6 +3,7 @@ import HomePage from "./routes/Home";
 import ProductPage from "./routes/Product";
 import RootLayout from "./routes/RootLayout.js";
 import ErrorPage from "./routes/ErrorPage";
+import ProductDetailPage from "./routes/ProductDetail";
 
 const router = createBrowserRouter([
   // define routes through javascript objects in an array
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     children: [ // make the other routes children routes in an array(list of routes) great when creating nav bars
       { path: "/", element: <HomePage /> },
       { path: "/products", element: <ProductPage /> },
+      { path: "/products/:productId", element: <ProductDetailPage /> } // productId is dynamic
     ],
   },
 
